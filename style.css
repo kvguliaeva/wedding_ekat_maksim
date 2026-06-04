@@ -1,72 +1,74 @@
-const planItems = [
-  {
-    src: "assets/guests.png",
-    alt: "11:00 Сбор гостей",
-  },
-  {
-    src: "assets/ceremony.png",
-    alt: "11:50 Церемония бракосочетания",
-  },
-  {
-    src: "assets/banquet.png",
-    alt: "16:00 Праздничный банкет",
-  },
-];
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="only light" />
+    <title>Максим и Екатерина | 11.09.2026</title>
+    <meta
+      name="description"
+      content="Свадебное приглашение Максима и Екатерины. 11 сентября 2026 года, Самара."
+    />
+    <link rel="stylesheet" href="style.css?v=6" />
+  </head>
+  <body>
+    <main class="pdf-invite" aria-label="Свадебное приглашение Максим и Екатерина">
+      <div class="invite-canvas">
+        <img class="pdf-base" src="assets/pdf-preview.jpg" alt="Максим и Екатерина. Свадебное приглашение 11.09.2026" />
 
-let currentPlanIndex = 0;
+        <section class="plan-slider" aria-label="План дня">
+          <div class="plan-card" aria-live="polite">
+            <img src="assets/guests.png" alt="11:00 Сбор гостей" data-plan-image />
+          </div>
+          <button class="slider-hit slider-hit--next" type="button" aria-label="Следующее событие" data-next></button>
+          <div class="slider-dots" aria-hidden="true">
+            <span class="is-active"></span>
+            <span></span>
+            <span></span>
+          </div>
+        </section>
 
-const planCard = document.querySelector(".plan-card");
-const planImage = document.querySelector("[data-plan-image]");
-const dots = [...document.querySelectorAll(".slider-dots span")];
+        <a
+          class="hotspot hotspot--map"
+          href="https://yandex.ru/maps/org/2_pertsa/119947560160/?ll=50.192962%2C53.224309&z=16"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Открыть карту с адресом банкетного зала"
+        ></a>
 
-function renderPlan(index) {
-  currentPlanIndex = (index + planItems.length) % planItems.length;
-  const item = planItems[currentPlanIndex];
+        <a
+          class="hotspot hotspot--survey"
+          href="https://forms.yandex.ru/u/6a21612302848f830be44e97"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Заполнить анкету гостя"
+          data-open-survey
+        ></a>
 
-  planCard.classList.add("is-changing");
-  window.setTimeout(() => {
-    planImage.src = item.src;
-    planImage.alt = item.alt;
-    dots.forEach((dot, dotIndex) => {
-      dot.classList.toggle("is-active", dotIndex === currentPlanIndex);
-    });
-    planCard.classList.remove("is-changing");
-  }, 180);
-}
+        <section class="countdown" aria-label="Таймер до свадьбы" aria-live="polite">
+          <div>
+            <strong data-count="days">0</strong>
+            <span>дней</span>
+          </div>
+          <div>
+            <strong data-count="hours">00</strong>
+            <span>часов</span>
+          </div>
+          <div>
+            <strong data-count="minutes">00</strong>
+            <span>минут</span>
+          </div>
+          <div>
+            <strong data-count="seconds">00</strong>
+            <span>секунд</span>
+          </div>
+        </section>
 
-document.querySelector("[data-next]").addEventListener("click", () => {
-  renderPlan(currentPlanIndex + 1);
-});
+        <a class="hotspot hotspot--maxim" href="tel:+79879442099" aria-label="Позвонить Максиму"></a>
+        <a class="hotspot hotspot--ekaterina" href="tel:+79397568858" aria-label="Позвонить Екатерине"></a>
+      </div>
+    </main>
 
-const WEDDING_DATE = new Date("2026-09-11T11:00:00+04:00");
-const counters = {
-  days: document.querySelector('[data-count="days"]'),
-  hours: document.querySelector('[data-count="hours"]'),
-  minutes: document.querySelector('[data-count="minutes"]'),
-  seconds: document.querySelector('[data-count="seconds"]'),
-};
-
-function pad(value) {
-  return String(value).padStart(2, "0");
-}
-
-function updateCountdown() {
-  const diff = WEDDING_DATE - new Date();
-
-  if (diff <= 0) {
-    counters.days.textContent = "0";
-    counters.hours.textContent = "00";
-    counters.minutes.textContent = "00";
-    counters.seconds.textContent = "00";
-    return;
-  }
-
-  const totalSeconds = Math.floor(diff / 1000);
-  counters.days.textContent = Math.floor(totalSeconds / 86400);
-  counters.hours.textContent = pad(Math.floor((totalSeconds % 86400) / 3600));
-  counters.minutes.textContent = pad(Math.floor((totalSeconds % 3600) / 60));
-  counters.seconds.textContent = pad(totalSeconds % 60);
-}
-
-updateCountdown();
-setInterval(updateCountdown, 1000);
+    <script src="script.js?v=6"></script>
+  </body>
+</html>
