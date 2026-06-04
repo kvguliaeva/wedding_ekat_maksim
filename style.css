@@ -71,7 +71,7 @@ textarea {
 
 .hotspot--survey {
   left: 26.7%;
-  top: 78.5%;
+  top: 78.4%;
   width: 46.6%;
   height: 0.9%;
 }
@@ -103,8 +103,8 @@ textarea {
 }
 
 .plan-card {
-  width: 82%;
-  max-width: 330px;
+  width: 72%;
+  max-width: 288px;
   aspect-ratio: 1;
   display: grid;
   place-items: center;
@@ -162,9 +162,54 @@ textarea {
   background: #ffffff;
 }
 
+.countdown {
+  position: absolute;
+  z-index: 3;
+  left: 12%;
+  top: 72.2%;
+  width: 76%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(62, 70, 64, 0.22);
+}
+
+.countdown div {
+  padding: 9px 3px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.countdown strong {
+  display: block;
+  font-size: 27px;
+  line-height: 1;
+  font-weight: 500;
+}
+
+.countdown span {
+  display: block;
+  margin-top: 5px;
+  font-size: 15px;
+  line-height: 1;
+}
+
 @media (max-width: 420px) {
   .plan-card {
-    width: 86%;
+    width: 76%;
   }
 
+  .countdown {
+    gap: 5px;
+  }
+
+  .countdown strong {
+    font-size: 23px;
+  }
+
+  .countdown span {
+    font-size: 13px;
+  }
 }
