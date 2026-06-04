@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="only light" />
+    <title>Максим и Екатерина | 11.09.2026</title>
+    <meta
+      name="description"
+      content="Свадебное приглашение Максима и Екатерины. 11 сентября 2026 года, Самара."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="pdf-invite" aria-label="Свадебное приглашение Максим и Екатерина">
+      <div class="invite-canvas">
+        <img class="pdf-base" src="assets/pdf-preview.jpg" alt="Максим и Екатерина. Свадебное приглашение 11.09.2026" />
+
+        <section class="plan-slider" aria-label="План дня">
+          <div class="plan-card" aria-live="polite">
+            <img src="assets/guests.png" alt="11:00 Сбор гостей" data-plan-image />
+          </div>
+          <button class="slider-hit slider-hit--next" type="button" aria-label="Следующее событие" data-next></button>
+          <div class="slider-dots" aria-hidden="true">
+            <span class="is-active"></span>
+            <span></span>
+            <span></span>
+          </div>
+        </section>
+
+        <a
+          class="hotspot hotspot--map"
+          href="https://yandex.ru/maps/org/2_pertsa/119947560160/?ll=50.192962%2C53.224309&z=16"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Открыть карту с адресом банкетного зала"
+        ></a>
+
+        <a
+          class="hotspot hotspot--survey"
+          href="https://forms.yandex.ru/u/6a21612302848f830be44e97"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Заполнить анкету гостя"
+          data-open-survey
+        ></a>
+
+        <a class="hotspot hotspot--maxim" href="tel:+79879442099" aria-label="Позвонить Максиму"></a>
+        <a class="hotspot hotspot--ekaterina" href="tel:+79397568858" aria-label="Позвонить Екатерине"></a>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
